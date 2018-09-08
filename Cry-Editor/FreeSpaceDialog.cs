@@ -28,7 +28,8 @@ namespace Crying
             var offset = rom.Find(0xFF, tNeeded.Value+4, tStart.Value);
             if (offset > 0)
             {
-                offset = offset + offset % 4;
+                offset += 3;
+                offset -= offset % 4;
                 bOK.Enabled = true;
                 tRepointTo.Value = offset;
             }
